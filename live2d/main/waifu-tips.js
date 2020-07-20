@@ -9,24 +9,18 @@ function loadWidget(config) {
 	if (typeof cdnPath === "string") {
 		useCDN = true;
 		if (!cdnPath.endsWith("/")) cdnPath += "/";
-	} else if (typeof apiPath === "string") {
-		if (!apiPath.endsWith("/")) apiPath += "/";
-	} else {
-		console.error("Invalid initWidget argument!");
-		return;
 	}
+	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
 	document.body.insertAdjacentHTML("beforeend", `<div id="waifu">
 			<div id="waifu-tips"></div>
-			<canvas id="live2d" width="800" height="800"></canvas>
+			<canvas id="live2d" width="270" height="270"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-paper-plane"></span>
 				<span class="fa fa-lg fa-user-circle"></span>
 				<span class="fa fa-lg fa-street-view"></span>
 				<span class="fa fa-lg fa-camera-retro"></span>
-				<span class="fa fa-lg fa-info-circle"></span>
 				<span class="fa fa-lg fa-times"></span>
 			</div>
 		</div>`);
@@ -66,9 +60,6 @@ function loadWidget(config) {
 			Live2D.captureName = "photo.png";
 			Live2D.captureFrame = true;
 		});
-		document.querySelector("#waifu-tool .fa-info-circle").addEventListener("click", () => {
-			open("https://github.com/stevenjoezhang/live2d-widget");
-		});
 		document.querySelector("#waifu-tool .fa-times").addEventListener("click", () => {
 			localStorage.setItem("waifu-display", Date.now());
 			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
@@ -81,13 +72,13 @@ function loadWidget(config) {
 		let devtools = () => {};
 		console.log("%c", devtools);
 		devtools.toString = () => {
-			showMessage("哈哈，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
+			showMessage("诶，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
 		};
 		window.addEventListener("copy", () => {
 			showMessage("你都复制了些什么呀，转载要记得加上出处哦！", 6000, 9);
 		});
 		window.addEventListener("visibilitychange", () => {
-			if (!document.hidden) showMessage("终于回来了～", 6000, 9);
+			if (!document.hidden) showMessage("哇，你终于回来了～", 6000, 9);
 		});
 	})();
 
@@ -152,30 +143,28 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			modelId = 1; // 模型 ID
-			modelTexturesId = 53; // 材质 ID
+			modelId = 2; // 模型 ID
+			modelTexturesId = 40; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
 		fetch(waifuPath)
 			.then(response => response.json())
 			.then(result => {
-				window.addEventListener("mouseover", event => {
-					for (let tips of result.mouseover) {
-						if (!event.target.matches(tips.selector)) continue;
+				result.mouseover.forEach(tips => {
+					window.addEventListener("mouseover", event => {
+						if (!event.target.matches(tips.selector)) return;
 						let text = randomSelection(tips.text);
 						text = text.replace("{text}", event.target.innerText);
 						showMessage(text, 4000, 8);
-						return;
-					}
+					});
 				});
-				window.addEventListener("click", event => {
-					for (let tips of result.click) {
-						if (!event.target.matches(tips.selector)) continue;
+				result.click.forEach(tips => {
+					window.addEventListener("click", event => {
+						if (!event.target.matches(tips.selector)) return;
 						let text = randomSelection(tips.text);
 						text = text.replace("{text}", event.target.innerText);
 						showMessage(text, 4000, 8);
-						return;
-					}
+					});
 				});
 				result.seasons.forEach(tips => {
 					let now = new Date(),
@@ -246,7 +235,7 @@ function loadWidget(config) {
 	}
 }
 
-function initWidget(config, apiPath) {
+function initWidget(config, apiPath = "/") {
 	if (typeof config === "string") {
 		config = {
 			waifuPath: config,

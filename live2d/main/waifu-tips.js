@@ -59,16 +59,6 @@ function loadWidget(config) {
 
 	(function registerEventListener() {
 		document.querySelector("#waifu-tool .fa-comment").addEventListener("click", showHitokoto);
-		document.querySelector("#waifu-tool .fa-paper-plane").addEventListener("click", () => {
-			if (window.Asteroids) {
-				if (!window.ASTEROIDSPLAYERS) window.ASTEROIDSPLAYERS = [];
-				window.ASTEROIDSPLAYERS.push(new Asteroids());
-			} else {
-				let script = document.createElement("script");
-				script.src = "https://cdn.jsdelivr.net/gh/GalaxyMimi/CDN/asteroids.js";
-				document.head.appendChild(script);
-			}
-		});
 		document.querySelector("#waifu-tool .fa-user-circle").addEventListener("click", loadOtherModel);
 		document.querySelector("#waifu-tool .fa-street-view").addEventListener("click", loadRandModel);
 		document.querySelector("#waifu-tool .fa-camera-retro").addEventListener("click", () => {

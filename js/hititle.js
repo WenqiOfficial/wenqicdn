@@ -3,7 +3,7 @@
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = '(*/ω＼*)竟然抛弃我 - ' + OriginTitle;
+         document.title = '竟然抛弃我了- ' + OriginTitle;
          clearTimeout(titleTime);
      }
      else {

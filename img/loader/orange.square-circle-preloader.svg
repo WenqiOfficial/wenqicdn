@@ -1,4 +1,4 @@
-<svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="-80 -80 260 260" preserveAspectRatio="xMidYMid" class="lds-squaricle" style="background: rgb(254, 250, 199) none repeat scroll 0% 0%;">
+<svg width="80px" height="80px" xmlns="http://www.w3.org/2000/svg" viewBox="-80 -80 260 260" preserveAspectRatio="xMidYMid" class="lds-squaricle" style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
     <g transform="translate(50 50)">
       <g transform="scale(0.794652 0.794652)">
         <animateTransform attributeName="transform" type="scale" calcMode="spline" values="0.8;0.5;0.8" keyTimes="0;0.5;1" dur="1.5s" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" begin="0s" repeatCount="indefinite"/>

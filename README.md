@@ -1,2 +1,2 @@
 # wenqicdn
-闻柒cdn
+WenqiOfficial的"闻柒博客"专用cdn.

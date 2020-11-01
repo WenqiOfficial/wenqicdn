@@ -3,7 +3,7 @@
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = '竟然抛弃我了- ';
+         document.title = '竟然抛弃我了...';
          clearTimeout(titleTime);
      }
      else {

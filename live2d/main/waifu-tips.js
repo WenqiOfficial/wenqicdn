@@ -92,7 +92,7 @@ function loadWidget(config) {
 			let now = new Date().getHours();
 			if (now > 5 && now <= 7) text = "现在是早上啦！准备好迎接美好的一天了吗";
 			else if (now > 7 && now <= 11) text = "上午好吖！一定不要久坐，多起来走动走动哦！";
-			else if (now > 11 && now <= 13) text = "已经到中午了，工作了一个上午，该填填肚子啦！";
+			else if (now > 11 && now <= 13) text = "已经到中午了，忙碌了一个上午，该填填肚子啦！";
 			else if (now > 13 && now <= 17) text = "午后很容易犯困呢，今天的运动目标完成了吗？";
 			else if (now > 17 && now <= 19) text = "咦？傍晚了哦，窗外夕阳的景色很美丽呢，一起来欣赏吧~";
 			else if (now > 19 && now <= 21) text = ["晚上好，今天过得怎么样？", "晚上了哦，辛苦了~"];
@@ -105,9 +105,10 @@ function loadWidget(config) {
 			else if (domain === "baidu") text = `Hello！来自 百度搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&wd=")[1].split("&")[0]}</span> 找到的我吗？`;
 			else if (domain === "so") text = `Hello！来自 360搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&q=")[1].split("&")[0]}</span> 找到的我吗？`;
 			else if (domain === "google") text = `Hello！来自 谷歌搜索 的朋友<br>欢迎来到<span>「${document.title.split(" - ")[0]}」</span>`;
+			else if (domain === "github") text = `看来你已经成功的从中转站传送过来了哦！看些东西吧！`;
 			else text = `Hello！来自 <span>${referrer.hostname}</span> 的朋友`;
 		} else {
-			text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
+			text = `欢迎来到<span>「${document.title.split(" - ")[0]}」</span>`;
 		}
 		showMessage(text, 7000, 8);
 	})();

@@ -19,7 +19,7 @@ function loadWidget(config) {
 	sessionStorage.removeItem("waifu-text");
 	document.body.insertAdjacentHTML("beforeend", `<div id="waifu">
 			<div id="waifu-tips"></div>
-			<canvas id="live2d" width="270" height="270"></canvas>
+			<canvas id="live2d" width="800" height="800"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
 				<span class="fa fa-lg fa-user-circle"></span>
@@ -107,7 +107,7 @@ function loadWidget(config) {
 			else if (domain === "google") text = `Hello！来自 谷歌搜索 的朋友<br>欢迎来到<span>「${document.title.split(" - ")[0]}」</span>`;
 			else text = `Hello！来自 <span>${referrer.hostname}</span> 的朋友`;
 		} else {
-			text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
+			text = `欢迎来到<span>「${document.title.split(" - ")[0]}」</span>`;
 		}
 		showMessage(text, 7000, 8);
 	})();
@@ -154,21 +154,23 @@ function loadWidget(config) {
 		fetch(waifuPath)
 			.then(response => response.json())
 			.then(result => {
-				result.mouseover.forEach(tips => {
-					window.addEventListener("mouseover", event => {
-						if (!event.target.matches(tips.selector)) return;
+				window.addEventListener("mouseover", event => {
+					for (let tips of result.mouseover) {
+						if (!event.target.matches(tips.selector)) continue;
 						let text = randomSelection(tips.text);
 						text = text.replace("{text}", event.target.innerText);
 						showMessage(text, 4000, 8);
-					});
+						return;
+					}
 				});
-				result.click.forEach(tips => {
-					window.addEventListener("click", event => {
-						if (!event.target.matches(tips.selector)) return;
+				window.addEventListener("click", event => {
+					for (let tips of result.click) {
+						if (!event.target.matches(tips.selector)) continue;
 						let text = randomSelection(tips.text);
 						text = text.replace("{text}", event.target.innerText);
 						showMessage(text, 4000, 8);
-					});
+						return;
+					}
 				});
 				result.seasons.forEach(tips => {
 					let now = new Date(),
@@ -200,7 +202,7 @@ function loadWidget(config) {
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 		} else {
 			loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
-			console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成☆`);
+			console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);
 		}
 	}
 
@@ -239,7 +241,7 @@ function loadWidget(config) {
 	}
 }
 
-function initWidget(config, apiPath = "/") {
+function initWidget(config, apiPath) {
 	if (typeof config === "string") {
 		config = {
 			waifuPath: config,

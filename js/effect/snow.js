@@ -1,7 +1,7 @@
 var CIYANG
 (function($){  
     $.fn.snow = function(options){  
-    var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px', 'cursor': 'pointer'}).html('❄'),  
+    var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px', 'cursor': 'pointer', 'user-select': 'none'}).html('❄'),  
     documentHeight  = $(document).height(),  
     documentWidth   = $(document).width(),  
     defaults = {  
@@ -22,6 +22,7 @@ var CIYANG
         left: startPositionLeft,  
         opacity: startOpacity,  
         'font-size': sizeFlake,  
+		'user-select': none,  
         color: options.flakeColor  
     }).animate({  
         top: endPositionTop,  

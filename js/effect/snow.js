@@ -1,8 +1,8 @@
 var CIYANG
 (function($){  
     $.fn.snow = function(options){  
-    var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px', 'cursor': 'pointer', 'user-select': 'none'}).html('❄'),  
-    documentHeight  = $(document).height(),  
+    var $flake = $('<div id="snowbox" />').css({'position': 'absolute','z-index':'9999', 'top': '-50px', 'cursor': 'pointer',}).html('❄'),  
+    documentHeight  = $(document).height(), 
     documentWidth   = $(document).width(),  
     defaults = {  
         minSize     : 10,  
@@ -21,8 +21,7 @@ var CIYANG
     $flake.clone().appendTo('body').css({  
         left: startPositionLeft,  
         opacity: startOpacity,  
-        'font-size': sizeFlake,  
-		'user-select': none,  
+        'font-size': sizeFlake,   
         color: options.flakeColor  
     }).animate({  
         top: endPositionTop,  

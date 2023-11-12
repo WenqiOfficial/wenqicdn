@@ -6,7 +6,7 @@
 function loadWidget(config) {
 	// let { waifuPath, apiPath, cdnPath } = config;
 	let { waifuPath, apiPath } = config;
-	let cdnPath="https://proxy.wenqi.icu/proxy/fastly.jsdelivr.net/gh/fghrsh/live2d_api/"
+	let cdnPath="https://proxy.wenqi.icu/proxy/raw.githubusercontent.com/gh/fghrsh/live2d_api/"
 	let useCDN = false, modelList;
 	if (typeof cdnPath === "string") {
 		useCDN = true;

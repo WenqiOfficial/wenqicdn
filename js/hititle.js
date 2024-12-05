@@ -6,7 +6,7 @@ window.addEventListener('hashchange', function (event) {
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          /*$('[rel="icon"]').attr('href', "/img/trhx2.png");*/
-         document.title = '你去哪里了啊...';
+         document.title = '你去哪里了啊...|'+ OriginTitle;
          clearTimeout(titleTime);
      }
      else {

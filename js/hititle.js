@@ -3,7 +3,7 @@ var titleTime;
 document.addEventListener('visibilitychange', function () {
     if (OriginTitle != document.title && !document.title.includes('你去哪里了啊') && !document.title.includes('欢迎回来~')) {
         OriginTitle = document.title;
-        console.log('Title changed to'+ document.title);
+        // console.log('Title changed to: '+ document.title);
     }
     if (document.hidden) {
         /*$('[rel="icon"]').attr('href', "/img/trhx2.png");*/

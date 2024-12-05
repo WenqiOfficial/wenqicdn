@@ -1,5 +1,8 @@
- var OriginTitle = document.title;
- var titleTime;
+var OriginTitle = document.title;
+var titleTime;
+window.addEventListener('hashchange', function (event) {
+    OriginTitle = document.title;
+});
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          /*$('[rel="icon"]').attr('href', "/img/trhx2.png");*/
@@ -11,6 +14,6 @@
          document.title = '(*^▽^*)欢迎回来~' + OriginTitle;
          titleTime = setTimeout(function () {
              document.title = OriginTitle;
-         }, 2000);
+         }, 1500);
      }
  });

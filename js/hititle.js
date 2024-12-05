@@ -1,7 +1,7 @@
 var OriginTitle = document.title;
 var titleTime;
 document.addEventListener('visibilitychange', function () {
-    if (OriginTitle != document.title && !OriginTitle.includes('你去哪里了啊') && !OriginTitle.includes('欢迎回来~')) {
+    if (OriginTitle != document.title && !document.title.includes('你去哪里了啊') && !document.title.includes('欢迎回来~')) {
         OriginTitle = document.title;
         console.log('Title changed to'+ document.title);
     }

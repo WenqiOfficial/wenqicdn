@@ -72,16 +72,16 @@
 		"selector": "a[href^='mailto']",
 		"text": ["邮件我会提醒主人及时回复的！", "点击就可以发送邮件啦～"]
 	}, {
-		"selector": "a[href^='menja']",
+		"selector": "a[href^='/game/menja/']",
 		"text": ["切方块！"]
 	}, {
-		"selector": "a[href^='Mikutap']",
+		"selector": "a[href^='/game/Mikutap/']",
 		"text": ["要玩玩MikuTap吗？"]
 	}, {
-		"selector": "a[href^='canvas']",
+		"selector": "a[href^='/game/canvas/']",
 		"text": ["Canvas飞机大战！"]
 	}, {
-		"selector": "a[href^='powerful-wind']",
+		"selector": "a[href^='/game/powerful-wind/']",
 		"text": ["出门的瞬间就完蛋啦！"]
 	}, {
 		"selector": "a[href^='/bangumi/']",

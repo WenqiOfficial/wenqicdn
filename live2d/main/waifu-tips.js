@@ -160,7 +160,7 @@ function loadWidget(config) {
 				result.mouseover.forEach(tips => {
 					window.addEventListener("mouseover", event => {
 						if (!event.target.matches(tips.selector)) return;
-						let text = randomSelection(tips.text);
+						let text = randomSelection(tips.text.replace('·',''));
 						text = text.replace("{text}", event.target.innerText);
 						showMessage(text, 4000, 8);
 					});

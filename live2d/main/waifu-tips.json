@@ -87,7 +87,7 @@
 		"selector": "a[href^='/categories/']",
 		"text": ["要去看看 <span>{text}</span> 分类么？", "点它可以查看此分类下的所有文章哟！"]
 	}, {
-		"selector": ".post-title",
+		"selector": ".post-title h3",
 		"text": ["要看看 <span>{text}</span> 这篇文章吗？"]
 	}, {
 		"selector": "a[rel='contents']",

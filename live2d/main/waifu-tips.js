@@ -168,7 +168,7 @@ function loadWidget(config) {
 				result.click.forEach(tips => {
 					window.addEventListener("click", event => {
 						if (!event.target.matches(tips.selector)) return;
-						let text = randomSelection(tips.text);
+						let text = randomSelection(tips.text.replace('·',''));
 						text = text.replace("{text}", event.target.innerText);
 						showMessage(text, 4000, 8);
 					});

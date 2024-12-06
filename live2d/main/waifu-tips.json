@@ -70,7 +70,34 @@
 		"text": ["GitHub！我是新手！", "PHP 是最好的语言！"]
 	}, {
 		"selector": "a[href^='mailto']",
-		"text": ["邮件我会及时回复的！", "点击就可以发送邮件啦～"]
+		"text": ["邮件我会提醒主人及时回复的！", "点击就可以发送邮件啦～"]
+	}, {
+		"selector": "a[href^='menja']",
+		"text": ["切方块！"]
+	}, {
+		"selector": "a[href^='Mikutap']",
+		"text": ["要玩玩MikuTap吗？"]
+	}, {
+		"selector": "a[href^='canvas']",
+		"text": ["Canvas飞机大战！"]
+	}, {
+		"selector": "a[href^='powerful-wind']",
+		"text": ["出门的瞬间就完蛋啦！"]
+	}, {
+		"selector": "a[href^='/bangumi/']",
+		"text": ["是主人看过的番！","你喜欢看什么番剧呢？"]
+	}, {
+		"selector": "a[href^='/music/']",
+		"text": ["主人爱听的音乐~","我也很喜欢听歌噢！"]
+	}, {
+		"selector": "a[href^='/topvideo/']",
+		"text": ["是首页随机播放的视频呀！"]
+	}, {
+		"selector": "a[href^='/tools/']",
+		"text": ["一些奇奇怪怪的小工具？"]
+	}, {
+		"selector": "a[href^='/comment/'],a[href^='/commentlivere/']",
+		"text": ["来给小屋留言吧！","有什么想和我的主人说的话吗？"]
 	}, {
 		"selector": "a[href^='/tags/']",
 		"text": ["要去看看 <span>{text}</span> 标签么？", "点它可以查看此标签下的所有文章哟！"]
@@ -96,17 +123,17 @@
 		"selector": ".back-to-top",
 		"text": ["点它就可以回到顶部啦！", "又回到最初的起点～", "要回到开始的地方么？"]
 	}, {
-		"selector": ".reward-container",
-		"text": ["我是不是棒棒哒～快给我点赞吧！", "要打赏我嘛？好期待啊～", "主人最近在吃土呢，很辛苦的样子，给他一些钱钱吧～"]
+		"selector": ".reward-container,a[href^='/donate/'],.reward-open",
+		"text": ["我的主人是不是棒棒哒～快给我的主人点赞吧！", "要打赏我的主人嘛？好期待啊～", "主人最近在吃土呢，很辛苦的样子，给他一些钱钱吧～"]
 	}, {
 		"selector": "#wechat",
-		"text": ["这是我的微信二维码～"]
+		"text": ["这是主人的微信二维码～"]
 	}, {
 		"selector": "#alipay",
-		"text": ["这是我的支付宝哦！"]
+		"text": ["这是主人的支付宝哦！"]
 	}, {
 		"selector": "#bitcoin",
-		"text": ["这是我的比特币账号！"]
+		"text": ["这是主人的比特币账号！"]
 	}, {
 		"selector": "#needsharebutton-postbottom .btn",
 		"text": ["好东西要让更多人知道才行哦。", "觉得文章有帮助的话，可以分享给更多需要的朋友呢。"]

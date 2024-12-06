@@ -160,16 +160,18 @@ function loadWidget(config) {
 				result.mouseover.forEach(tips => {
 					window.addEventListener("mouseover", event => {
 						if (!event.target.matches(tips.selector)) return;
-						let text = randomSelection(tips.text.replace('·',''));
+						let text = randomSelection(tips.text);
 						text = text.replace("{text}", event.target.innerText);
+						text = text.replace('·','');
 						showMessage(text, 4000, 8);
 					});
 				});
 				result.click.forEach(tips => {
 					window.addEventListener("click", event => {
 						if (!event.target.matches(tips.selector)) return;
-						let text = randomSelection(tips.text.replace('·',''));
+						let text = randomSelection(tips.text);
 						text = text.replace("{text}", event.target.innerText);
+						text = text.replace('·','');
 						showMessage(text, 4000, 8);
 					});
 				});
